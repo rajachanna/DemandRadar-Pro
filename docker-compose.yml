@@ -1,0 +1,9 @@
+services:
+  demandradar:
+    build: .
+    ports: ["127.0.0.1:8090:8090"]
+    env_file: [.env]
+    volumes:
+      - demandradar_data:/app/data
+volumes:
+  demandradar_data:

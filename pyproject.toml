@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "demandradar-pro"
+version = "0.1.0"
+description = "Public-source opportunity intelligence and human-reviewed client outreach workspace"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "NextGen Tech Solutions"}]
+dependencies = ["fastapi>=0.109,<1", "uvicorn>=0.25,<1", "httpx>=0.25,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov>=4", "build>=1"]
+
+[project.scripts]
+demandradar = "demandradar.cli:main"
+
+[tool.setuptools]
+packages = ["demandradar"]
+
+[tool.setuptools.package-data]
+demandradar = ["static/*.html", "static/*.css", "static/*.js"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
